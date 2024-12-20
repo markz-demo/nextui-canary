@@ -1,6 +1,29 @@
 {
-  "extends": "../../tsconfig.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "types": [
+      "@testing-library/jest-dom",
+      "node"
+    ],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -17,7 +40,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
-    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"
@@ -26,6 +48,8 @@
     "strictNullChecks": true
   },
   "include": [
+    "packages",
+    "packages",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
@@ -36,6 +60,12 @@
     "global.d.ts"
   ],
   "exclude": [
+    "**/node_modules",
+    "**/dist",
+    "**/.turbo",
+    "**/node_modules",
+    "**/dist",
+    "**/.turbo",
     "node_modules",
     "next-redirect.js"
   ]
