@@ -7,10 +7,10 @@ const rootTsConfigPath = path.resolve(process.cwd(), "../../tsconfig.json");
 const localTsConfigPath = path.resolve(process.cwd(), "./tsconfig.json");
 
 // Check the environment variable
-if (process.env.IS_VERCEL_ENV !== "true") {
-  console.log("Skipping preinstall script because IS_VERCEL_ENV is not set to 'true'.");
-  process.exit(0);
-}
+// if (process.env.IS_VERCEL_ENV !== "true") {
+//   console.log("Skipping preinstall script because IS_VERCEL_ENV is not set to 'true'.");
+//   process.exit(0);
+// }
 
 // Read the package.json file
 fs.readFile("./package.json", "utf8", function (err, data) {
@@ -26,7 +26,7 @@ fs.readFile("./package.json", "utf8", function (err, data) {
     // Check if the package is in the @nextui-org namespace and has "workspace:*" as its version
     if (pkg.startsWith("@nextui-org/") && packageJson.dependencies[pkg] === "workspace:*") {
       // Get the latest version of the package under the specified tag
-      const latestVersion = execSync(`npm show ${pkg}@canary version`, {encoding: "utf8"}).trim();
+      const latestVersion = execSync(`npm show ${pkg} version`, {encoding: "utf8"}).trim();
 
       // Replace the version in the package.json file
       packageJson.dependencies[pkg] = latestVersion;
